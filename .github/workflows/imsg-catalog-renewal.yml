@@ -1,0 +1,29 @@
+# Renewal preserves the already qualified release; it cannot select a new helper.
+# Deploy with the public catalog scripts/config to the approved update-only repo.
+# It stays disabled in the private Workbench source repository.
+name: Renew approved Messages catalog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 10 * * 1,4"
+permissions:
+  contents: write
+concurrency:
+  group: imsg-component-publication
+  cancel-in-progress: false
+jobs:
+  renew:
+    if: github.repository == 'mrferreira89/Workbench-updates' && vars.IMSG_CATALOG_RENEWAL_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: component-releases
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - name: Renew metadata for the existing approved helper
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WORKBENCH_COMPONENT_SIGNING_KEY: ${{ secrets.WORKBENCH_COMPONENT_SIGNING_KEY }}
+        run: node scripts/imsg-catalog-renew.mjs --config scripts/imsg-updates.json --out .local/imsg-catalog-renewal
