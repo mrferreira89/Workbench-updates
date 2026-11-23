@@ -9,5 +9,5 @@
       "public_key": "7DMEYhXON57jDq24szKu/MpECxa499CRc4pFasRubKk="
     }
   ],
-  "comment": "Owner-approved public update-only host, separate from the private Workbench source repository. Catalog authority is protected in Keychain and the host's scoped release environment; executables retain upstream Peter Steinberger signing identity. The first catalog is published only after qualification and owner testing."
+  "comment": "Owner-approved public update-only host, separate from the private Workbench source repository. Catalog authority is stored in this Mac's Keychain. The main-only host signing environment is prepared; private-key transfer awaits the owner's test and explicit OK. Executables retain upstream Peter Steinberger signing identity. The first catalog is published only after qualification and owner testing."
 }
