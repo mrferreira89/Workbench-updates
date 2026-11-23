@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "catalog_url": "https://github.com/mrferreira89/Workbench-updates/releases/download/imsg-component-feed/catalog.json",
+  "artifact_base": "https://github.com/mrferreira89/Workbench-updates/releases/download",
+  "apple_team_id": "Y5PE65HELJ",
+  "keys": [
+    {
+      "id": "workbench-components-v1",
+      "public_key": "7DMEYhXON57jDq24szKu/MpECxa499CRc4pFasRubKk="
+    }
+  ],
+  "comment": "Owner-approved public update-only host, separate from the private Workbench source repository. Catalog authority is protected in Keychain and the host's scoped release environment; executables retain upstream Peter Steinberger signing identity. The first catalog is published only after qualification and owner testing."
+}
